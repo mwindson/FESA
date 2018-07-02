@@ -4,6 +4,7 @@ def read_csv():
     input_path = '../single'
     list_dir = os.listdir(input_path)
     tt = []
+    qq = []
     for file_name in list_dir:
         if file_name == '.DS_Store':
             continue
@@ -11,25 +12,27 @@ def read_csv():
         doc_dir = os.listdir(file_path)
         if not doc_dir:
             continue
-        path1 = os.path.join(file_path, 'SentimentClassification')
+        path1 = os.path.join(file_path, 'entity_extraction')
         temp1 = pd.read_csv(path1, index_col='Unnamed: 0')
         print('start')
         print(file_name)
         entity_score = {}
         for i in range(len(temp1)):
             entity = temp1.iloc[i, :].entity
-            score = temp1.score[i]
-            if entity not in entity_score:
-                entity_score[entity] = int(score)
-            else:
-                entity_score[entity] += int(score)
+            score = temp1.index[i]
+            # if entity not in entity_score:
+            #     entity_score[entity] = int(score)
+            # else:
+            #     entity_score[entity] += int(score)
+            m = [entity, score]
+            qq.append(m)
 
-        for t in entity_score.keys():
-            v = entity_score[t]
-            m = [t, v]
-            tt.append(m)
+        # for t in entity_score.keys():
+        #     v = entity_score[t]
+        #     m = [t, v]
+        #     tt.append(m)
         print(file_name)
-    temp = pd.DataFrame(tt, columns=['entity', 'pre_score'])
+    temp = pd.DataFrame(qq, columns=['entity', 'pre_score'])
     file_name = os.path.join(input_path, 'result')
     temp.to_csv(file_name + '.csv')
     print('end')

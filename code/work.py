@@ -7,9 +7,9 @@ jieba.load_userdict("../entity/object")
 import os
 import re
 from nlp_model import *
-import 评价对象对抽取.nlp as nlp
-from 评价对象对抽取.pairs_extraction import *
-from 实体抽取.Objection_extraction import no_company
+import pairs_extraction.nlp as nlp
+from pairs_extraction.pairs_extraction import *
+from pairs_extraction.Objection_extraction import no_company
 def words_extraction(sentence,acp,words):
     list_words = []
     words_list = jieba.lcut(sentence)

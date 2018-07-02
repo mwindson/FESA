@@ -1,13 +1,13 @@
 from nlp_model import *
-from 实体抽取.entity_search import *
-from 情感词抽取.Sentiment_words_Extraction import *
-from 评价对象对抽取.pairs_extraction import *
-from 打分.get_score import *
+from object_extraction.entity_search import *
+from senWords_extraction.Sentiment_words_Extraction import *
+from pairs_extraction.pairs_extraction import *
+from get_score.get_score import *
 def init():
-    input_path = input("输入文件夹地址\n")
-    # input_path = '../100/single'
-    output_path = input("输出文件夹地址\n")
-    # output_path = '../demo/result/single'
+    # input_path = input("输入文件夹地址\n")
+    input_path = '../100/single'
+    # output_path = input("输出文件夹地址\n")
+    output_path = '../demo/result/single'
     #加载情感词典,并构建ac自动机
     #情感词典路径
     sen_dic_path = '../dictionary'
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 #    File_list = os.listdir(output_path)
     file_number = 0
     for file in file_list:
-        if file == '.DS_Store':
+        if file == '.DS_Store' or file != '55657':
             continue
         print('*************start**************')
         print(file)

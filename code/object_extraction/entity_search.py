@@ -33,7 +33,7 @@ def entity_search(content_list,keys,acp,output_path):
     if entity_dic:
         output_path = os.path.join(output_path, )
         file_name = os.path.join(output_path, 'entity_extraction')
-        temp = pd.DataFrame(entity_dic,columns=['sentence', 'entity', 'SenWords', 'pairs', 'polarity'])
+        temp = pd.DataFrame(entity_dic, columns=['sentence', 'entity', 'SenWords', 'pairs', 'polarity'])
         temp.to_csv(file_name)
         print("{0} save entity ".format(file_name))
     else:

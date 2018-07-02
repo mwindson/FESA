@@ -33,8 +33,10 @@ def rull_score1(word,list_words,pos_acp):
 
 
 def get_score(pairs_dic, pos_acp, neg_acp, file_path,fc_temp):
-    for temp in pairs_dic:
+    # file_temp = pd.read_csv(file_path + '/senWords_extraction', index_col='Unnamed: 0')
+    for i,temp in enumerate(pairs_dic):
         if temp[-1] == 0:
+            # file_temp.iloc[i, -1] = 0
             continue
         pairs = temp[-2]
         score_temp = 0
@@ -56,7 +58,7 @@ def get_score(pairs_dic, pos_acp, neg_acp, file_path,fc_temp):
         elif score_temp < 0 :
             score_temp = -1
         temp[-1] = score_temp
-
+        # file_temp.iloc[i,-1] = score_temp
     result = pairs_dic
     entity_score = {}
     for result_temp in result:
@@ -75,6 +77,7 @@ def get_score(pairs_dic, pos_acp, neg_acp, file_path,fc_temp):
     temp = pd.DataFrame(tt, columns=['entity', 'score'])
     file_name = os.path.join(file_path, 'SentimentClassification')
     temp.to_csv(file_name)
+    # file_temp.to_csv(file_path + '/senWords_extraction')
     print("{0} save score ".format(file_name))
     return result
 

@@ -1,8 +1,8 @@
 from nlp_model import *
-from 实体抽取.entity_search import *
-from 情感词抽取.Sentiment_words_Extraction import *
-from 评价对象对抽取.pairs_extraction import *
-from 打分.get_score import *
+from object_extraction.entity_search import *
+from senWords_extraction.Sentiment_words_Extraction import *
+from pairs_extraction.pairs_extraction import *
+from get_score.get_score import *
 
 
 def init():

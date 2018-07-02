@@ -2,7 +2,7 @@ from nlp import *
 import re
 import pandas as pd
 
-target_words = ['保荐', '建议', '关注', '发布', '推荐', '提醒', '看好', '表示', '认为', '迎接']
+target_words = ['保荐', '建议', '关注', '发布', '推荐', '提醒', '看好', '表示', '认为', '迎接', '看来']
 # def ruleBaseExtraction1(s,o):
 #     words = Cws(s)
 #     arcs = Parser1(s)
