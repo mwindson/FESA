@@ -1,0 +1,6 @@
+.idea
+.vscode
+venv/
+.DS_Store
+ltp_data_v3.4.0
+__pycache__
